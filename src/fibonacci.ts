@@ -1,14 +1,14 @@
 export class Fibonacci {
     private static fibonacciInstance: Fibonacci;
-    maxFibNumber = 75;
+    maxFibNumber = 1000;
     private fibNumbers: Set<number> = new Set();
 
-    constructor(){
+    constructor() {
         let n1: number = 0;
         let n2: number = 1;
         let nextTerm: number;
 
-        for (let i = 0; i <= this.maxFibNumber; i++) {
+        for (let i = 0; i <= this.maxFibNumber; i = i + 1) {
             this.fibNumbers.add(n1);
             nextTerm = n1 + n2;
             n1 = n2;
@@ -16,12 +16,12 @@ export class Fibonacci {
         }
     }
 
-    public isFibonacciNumber(numbertoCheck: number): boolean{
+    public isFibonacciNumber(numbertoCheck: number): boolean {
         return this.fibNumbers.has(numbertoCheck);
     }
 
-    public static getInstance(): Fibonacci{
-        if(!this.fibonacciInstance){
+    public static getInstance(): Fibonacci {
+        if (!this.fibonacciInstance) {
             this.fibonacciInstance = new Fibonacci();
         }
 

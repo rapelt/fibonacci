@@ -15,6 +15,10 @@ describe("Timer", () => {
         });
     });
 
+    afterEach(() => {
+        timer.timer?.unref();
+    });
+
     describe("Start Timer", () => {
         it("should start the timer", () => {
             timer.startTimer(5);

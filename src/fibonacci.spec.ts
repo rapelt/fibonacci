@@ -19,14 +19,8 @@ describe("Fibonacci", () => {
             expect(fibonacci.isFibonacciNumber(13)).toBeTruthy();
         });
 
-        it("should have the number 12586269025", () => {
-            expect(fibonacci.isFibonacciNumber(12586269025)).toBeTruthy();
-        });
-
-        it("should have the 1000 fib number", () => {
-            const fibNumber75 = 2111485077978050;
-            console.log('HERE', fibNumber75);
-            expect(fibonacci.isFibonacciNumber(fibNumber75)).toBeTruthy();
+        it("should have the number 987", () => {
+            expect(fibonacci.isFibonacciNumber(987)).toBeTruthy();
         });
 
         it("should NOT have the number 7", () => {

@@ -1,4 +1,5 @@
 import EventEmitter from "node:events";
+import { Printer } from './print';
 
 export const TIMER_EVENT_NAME = "TIMER";
 
@@ -8,23 +9,34 @@ export class Timer {
     mseconds: number = 0;
     timerOutput: number = 0;
     timerEvent = new EventEmitter();
+    isPaused = true;
 
     constructor() { }
 
     public pauseTimer(): void {
-        console.log("Timer paused");
+        Printer.print("Timer paused");
         clearInterval(this.timer);
+        this.isPaused = true;
+    }
+
+    public quitTimer(): void {
+        clearInterval(this.timer);
+        this.isPaused = true;
     }
 
     public startTimer(seconds: number): void {
-        console.log(`Set timer for ${seconds}`);
+        Printer.print(`Set timer for ${seconds}`);
         this.mseconds = seconds;
         this.timer = setInterval(this.setOutput.bind(this), 10, this.mseconds);
+        this.isPaused = false;
     }
 
     public resumeTimer(): void {
-        console.log("Timer resumed");
-        this.timer = setInterval(this.setOutput.bind(this), 10, this.mseconds);
+        if(this.isPaused){
+            Printer.print("Timer resumed");
+            this.timer = setInterval(this.setOutput.bind(this), 10, this.mseconds);
+            this.isPaused = false;
+        }
     }
 
     private setOutput(secondsToPrint: number) {

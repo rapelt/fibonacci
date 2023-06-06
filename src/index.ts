@@ -9,7 +9,6 @@ const FIRST_FIB_QUESTION_TEXT = "Please enter the first number";
 
 const storage = Storage.getInstance();
 const timer = Timer.getInstance();
-
 const question = new Question();
 
 function startTimer(numberOfTimerSeconds: number): void {
@@ -28,7 +27,9 @@ async function startProgram(){
 
     await question.askFibNumberQuestion(FIRST_FIB_QUESTION_TEXT);
 
-    timer.pauseTimer();
+    Printer.print("Thanks for playing");
+
+    process.exit();
 }
 
 startProgram();
