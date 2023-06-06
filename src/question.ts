@@ -20,7 +20,7 @@ export class Question {
     }
 
 
-    private askOneQuestion(question: string): Promise<any> {
+    private askOneQuestion(question: string): Promise<string> {
         const stdin = process.stdin;
         const stdout = process.stdout;
 
@@ -35,7 +35,7 @@ export class Question {
     }
 
     public async askNumberOfSecondsQuestion(question: string): Promise<number> {
-        let answer: string = await this.askOneQuestion(question);
+        const answer: string = await this.askOneQuestion(question);
 
         if (!isNaN(Number(answer))) {
             return Number(answer);
@@ -63,7 +63,7 @@ export class Question {
                 const answerAsNumber = Number(answer);
 
                 if (this.fibonacci.isFibonacciNumber(answerAsNumber)) {
-                    Printer.print(FIB);
+                    Printer.print(FIB)
                     this.storage.addNumber(answerAsNumber);
                 }
                 break;
@@ -75,7 +75,7 @@ export class Question {
     }
 
     public async askFibNumberQuestion(question: string): Promise<void> {
-        let answer: string = '';
+        let answer = '';
 
         do {
             answer = await this.askOneQuestion(question);

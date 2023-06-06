@@ -4,8 +4,8 @@ export class Fibonacci {
     private fibNumbers: Set<number> = new Set();
 
     constructor() {
-        let n1: number = 0;
-        let n2: number = 1;
+        let n1 = 0;
+        let n2 = 1;
         let nextTerm: number;
 
         for (let i = 0; i <= this.maxFibNumber; i = i + 1) {

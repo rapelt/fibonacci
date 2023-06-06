@@ -6,12 +6,10 @@ export const TIMER_EVENT_NAME = "TIMER";
 export class Timer {
     private static timerInstance: Timer;
     timer: NodeJS.Timer | undefined;
-    mseconds: number = 0;
-    timerOutput: number = 0;
+    mseconds = 0;
+    timerOutput = 0;
     timerEvent = new EventEmitter();
     isPaused = true;
-
-    constructor() { }
 
     public pauseTimer(): void {
         Printer.print("Timer paused");

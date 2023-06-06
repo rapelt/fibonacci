@@ -19,7 +19,7 @@ function startTimer(numberOfTimerSeconds: number): void {
 }
 
 async function startProgram(){
-    let numberOfTimerSeconds: number = await question.askNumberOfSecondsQuestion(SECONDS_QUESTION_TEXT);
+    const numberOfTimerSeconds: number = await question.askNumberOfSecondsQuestion(SECONDS_QUESTION_TEXT);
 
     if (numberOfTimerSeconds) {
         startTimer(numberOfTimerSeconds);

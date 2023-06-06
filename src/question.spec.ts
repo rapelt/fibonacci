@@ -1,9 +1,7 @@
 import { describe, expect, it } from "@jest/globals";
 import { Storage } from "./storage";
 import { Fibonacci } from "./fibonacci";
-import { Timer } from "./timer";
 import { Question } from "./question";
-import { ReadStream } from "fs";
 
 describe("Question", () => {
     let question: Question;
