@@ -1,6 +1,6 @@
 import EventEmitter from "node:events";
 
-export const timerEventName = "TIMER";
+export const TIMER_EVENT_NAME = "TIMER";
 
 export class Timer {
     private static timerInstance: Timer;
@@ -9,7 +9,7 @@ export class Timer {
     timerOutput: number = 0;
     timerEvent = new EventEmitter();
 
-    constructor(){}
+    constructor() { }
 
     public pauseTimer(): void {
         console.log("Timer paused");
@@ -17,7 +17,7 @@ export class Timer {
     }
 
     public startTimer(seconds: number): void {
-        console.log("Timer started: ", `Set timer for ${seconds}`);
+        console.log(`Set timer for ${seconds}`);
         this.mseconds = seconds;
         this.timer = setInterval(this.setOutput.bind(this), 10, this.mseconds);
     }
@@ -27,24 +27,23 @@ export class Timer {
         this.timer = setInterval(this.setOutput.bind(this), 10, this.mseconds);
     }
 
-    private setOutput(secondsToPrint: number){
+    private setOutput(secondsToPrint: number) {
         this.timerOutput = this.timerOutput + 10;
-    
-        if(this.timerOutput === secondsToPrint * 1000){
-            this.timerEvent.emit(timerEventName);
+
+        if (this.timerOutput === secondsToPrint * 1000) {
+            this.timerEvent.emit(TIMER_EVENT_NAME);
             this.timerOutput = 0;
         }
     }
 
-
-    public static getInstance(): Timer{
-        if(!this.timerInstance){
+    public static getInstance(): Timer {
+        if (!this.timerInstance) {
             this.timerInstance = new Timer();
         }
 
         return this.timerInstance;
     }
-} 
+}
 
 
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "@jest/globals";
-import { Timer, timerEventName } from "./timer";
+import { Timer, TIMER_EVENT_NAME } from "./timer";
 
 describe("Timer", () => {
     let timer: Timer;
@@ -9,7 +9,7 @@ describe("Timer", () => {
             timer = module.Timer.getInstance();
             jest.resetModules();
 
-            jest.useFakeTimers({timerLimit: 5100});
+            jest.useFakeTimers({ timerLimit: 5100 });
             jest.spyOn(global, 'setInterval');
             jest.spyOn(global, 'clearInterval');
         });
@@ -18,7 +18,7 @@ describe("Timer", () => {
     describe("Start Timer", () => {
         it("should start the timer", () => {
             timer.startTimer(5);
-          
+
             expect(setInterval).toHaveBeenCalledTimes(1);
             expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10, 5);
         });
@@ -30,7 +30,7 @@ describe("Timer", () => {
 
             jest.advanceTimersByTime(5000);
             expect(timer.timerEvent.emit).toHaveBeenCalled();
-            expect(timer.timerEvent.emit).toHaveBeenCalledWith(timerEventName);
+            expect(timer.timerEvent.emit).toHaveBeenCalledWith(TIMER_EVENT_NAME);
 
 
         });
@@ -40,7 +40,7 @@ describe("Timer", () => {
         it("should start the timer", () => {
             timer.mseconds = 5;
             timer.resumeTimer();
-          
+
             expect(setInterval).toHaveBeenCalledTimes(1);
             expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10, 5);
         });
@@ -50,7 +50,7 @@ describe("Timer", () => {
         it("should pause the timer", () => {
             timer.mseconds = 5;
             timer.pauseTimer();
-          
+
             expect(clearInterval).toHaveBeenCalledTimes(1);
             expect(clearInterval).toHaveBeenLastCalledWith(timer.timer);
         });
