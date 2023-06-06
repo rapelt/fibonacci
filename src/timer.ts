@@ -27,11 +27,6 @@ export class Timer {
         this.timer = setInterval(this.setOutput.bind(this), 10, this.mseconds);
     }
 
-    public endTimer(): void {
-        console.log("Timer ended");
-        clearInterval(this.timer);
-    }
-
     private setOutput(secondsToPrint: number){
         this.timerOutput = this.timerOutput + 10;
     

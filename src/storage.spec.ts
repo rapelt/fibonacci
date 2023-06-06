@@ -44,7 +44,7 @@ describe("Storage", () => {
             storage.addNumber(1);
 
             const toPrint = storage.toPrint();
-            expect(toPrint).toEqual("3:2, 1:1");
+            expect(toPrint).toEqual("1:1, 3:2");
         });
     });
 });

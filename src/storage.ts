@@ -16,7 +16,9 @@ export class Storage {
     public toPrint(): string {
         let print: string = "";
 
-        this.fibNumbers.forEach((value, key) => {
+        const sortedMap = new Map([...this.fibNumbers.entries()].sort());
+
+        sortedMap.forEach((value, key) => {
             if(print === ""){
                 print = `${key}:${value}`;
             } else {

@@ -63,6 +63,6 @@ seconds("Please input the amount of time in seconds between emitting numbers and
     }
 
     ask('Please enter the first number').then(() => {
-        timer.endTimer();
+        timer.pauseTimer();
     });
 })

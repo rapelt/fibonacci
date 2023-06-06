@@ -1,6 +1,7 @@
 export class Question {
     public static askOnce(question: string): Promise<any>{
-        var stdin = process.stdin, stdout = process.stdout;
+        const stdin = process.stdin;
+        const stdout = process.stdout;
       
         stdin.resume();
         stdout.write(question + ": ");
