@@ -1,4 +1,4 @@
-# fibonacci
+# Fibonacci
 FTR Fibonacci Coding Test
 
 ## Installation
