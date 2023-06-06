@@ -3,7 +3,7 @@ FTR Fibonacci Coding Test
 
 ## Installation
 
-Node 10 and above:
+Node 10 and above is required.
 
 Clone the git repository locally.
 Using the terminal navigate to fibonacci folder.
@@ -12,7 +12,7 @@ Using the terminal navigate to fibonacci folder.
 npm install
 ```
 
-To run the application
+## To run the application
 
 ```bash
 npm run start
@@ -24,12 +24,14 @@ To run the application in watch mode
 npm run dev
 ```
 
-To run the test
+## To run the tests
 
 ```bash
 npm run test
 ```
 
+
+## Description
 This application first accepts the number of seconds you would like between printing out its saved data. Eg 5.
 Then it will continue to ask for numbers. It will save any Fibonacci numbers that are entered and the quantity of times they were entered. 
 
