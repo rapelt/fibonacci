@@ -1,12 +1,12 @@
 export class Fibonacci {
     private static fibonacciInstance: Fibonacci;
     maxFibNumber = 1000;
-    private fibNumbers: Set<number> = new Set();
+    private fibNumbers: Set<bigint> = new Set();
 
     constructor() {
-        let n1 = 0;
-        let n2 = 1;
-        let nextTerm: number;
+        let n1: bigint = BigInt(0);
+        let n2: bigint = BigInt(1);
+        let nextTerm: bigint;
 
         for (let i = 0; i <= this.maxFibNumber; i = i + 1) {
             this.fibNumbers.add(n1);
@@ -17,7 +17,7 @@ export class Fibonacci {
     }
 
     public isFibonacciNumber(numbertoCheck: number): boolean {
-        return this.fibNumbers.has(numbertoCheck);
+        return this.fibNumbers.has(BigInt(numbertoCheck));
     }
 
     public static getInstance(): Fibonacci {

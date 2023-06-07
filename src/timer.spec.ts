@@ -42,7 +42,7 @@ describe("Timer", () => {
 
     describe("Resume Timer", () => {
         it("should start the timer", () => {
-            timer.mseconds = 5;
+            timer.seconds = 5;
             timer.resumeTimer();
 
             expect(setInterval).toHaveBeenCalledTimes(1);
@@ -52,7 +52,7 @@ describe("Timer", () => {
 
     describe("Pause Timer", () => {
         it("should pause the timer", () => {
-            timer.mseconds = 5;
+            timer.seconds = 5;
             timer.pauseTimer();
 
             expect(clearInterval).toHaveBeenCalledTimes(1);

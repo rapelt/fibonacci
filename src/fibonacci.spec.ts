@@ -27,7 +27,7 @@ describe("Fibonacci", () => {
             expect(fibonacci.isFibonacciNumber(7)).toBeFalsy();
         });
 
-        it("should NOT have the number 1001 fib number", () => {
+        it("should NOT have the number 2111485077978052 fib number", () => {
             const notAFibNumber = 2111485077978052;
             expect(fibonacci.isFibonacciNumber(notAFibNumber)).toBeFalsy();
         });

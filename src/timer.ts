@@ -6,7 +6,7 @@ export const TIMER_EVENT_NAME = "TIMER";
 export class Timer {
     private static timerInstance: Timer;
     timer: NodeJS.Timer | undefined;
-    mseconds = 0;
+    seconds = 0;
     timerOutput = 0;
     timerEvent = new EventEmitter();
     isPaused = true;
@@ -22,17 +22,17 @@ export class Timer {
         this.isPaused = true;
     }
 
-    public startTimer(seconds: number): void {
-        Printer.print(`Set timer for ${seconds}`);
-        this.mseconds = seconds;
-        this.timer = setInterval(this.setOutput.bind(this), 10, this.mseconds);
+    public startTimer(userSeconds: number): void {
+        Printer.print(`Set timer for ${userSeconds}`);
+        this.seconds = userSeconds;
+        this.timer = setInterval(this.setOutput.bind(this), 10, this.seconds);
         this.isPaused = false;
     }
 
     public resumeTimer(): void {
         if(this.isPaused){
             Printer.print("Timer resumed");
-            this.timer = setInterval(this.setOutput.bind(this), 10, this.mseconds);
+            this.timer = setInterval(this.setOutput.bind(this), 10, this.seconds);
             this.isPaused = false;
         }
     }
